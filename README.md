@@ -9,7 +9,6 @@ The dataset is loaded into a Pandas DataFrame and its structure is inspected. Th
 
 3. Data Preprocessing
 Text Cleaning: The tweet text undergoes several cleaning steps. The text is converted to lowercase, URLs, mentions, hashtags, and punctuation are removed, and stopwords (common words with little meaningful value) are filtered out. This step ensures that only relevant words are kept for analysis.
-
 Removing Duplicates: After preprocessing, duplicate rows are removed from the dataset to ensure the model trains on unique data.
 
 4. Stemming
@@ -17,7 +16,6 @@ Text Stemming: The cleaned text is subjected to stemming using the PorterStemmer
 
 5. Sentiment Analysis
 Polarity Calculation: The sentiment of each tweet is evaluated using the TextBlob library, which calculates a polarity score. The polarity score ranges from -1 (negative sentiment) to +1 (positive sentiment).
-
 Classifying Sentiment: Based on the polarity score, tweets are classified into three categories: "Positive", "Neutral", and "Negative". A custom function maps the polarity score to one of these sentiment labels.
 
 6. Sentiment Distribution Visualization
@@ -28,17 +26,14 @@ Wordcloud Generation: Word clouds are generated for each sentiment category (pos
 
 8. Feature Extraction and Model Training
 Vectorization: The text data is transformed into numerical features using a CountVectorizer. This converts the text into a bag-of-words model, where each word or n-gram (word pair) becomes a feature in the dataset.
-
 Splitting Data: The dataset is split into training and testing sets, with 80% of the data used for training the model and 20% reserved for testing. This split allows for evaluating the model's performance on unseen data.
 
 9. Logistic Regression Model
 Model Training: A Logistic Regression model is trained on the training data. After training, the model is evaluated on the test data, and various performance metrics such as accuracy, confusion matrix, and classification report are used to assess its effectiveness.
-
 Tuning Hyperparameters with GridSearchCV: GridSearchCV is employed to find the best hyperparameters for the Logistic Regression model, improving its accuracy by testing different values for the regularization parameter C.
 
 10. Support Vector Machine (SVM) Model
 Model Training: A Support Vector Machine (SVM) model is also trained and evaluated. Similar to Logistic Regression, SVM is used to classify the tweets based on sentiment, and its performance is assessed using accuracy, confusion matrix, and classification report.
-
 Hyperparameter Tuning: Hyperparameters of the SVM model, such as C, kernel, degree, and gamma, are tuned using GridSearchCV to optimize the model's performance.
 
 11. Model Evaluation and Results
@@ -46,9 +41,7 @@ Confusion Matrix: The confusion matrix for both the Logistic Regression and SVM 
 
 12. Model Comparison for Future Analysis
 Comparison of Logistic Regression and SVM Models:
-
 Logistic Regression: This model is often a good baseline for binary or multi-class classification problems, especially when the relationships between features and the target are linear. It performed reasonably well in terms of accuracy, but it might struggle with more complex, non-linear patterns in the data.
-
 Support Vector Machine (SVM): SVM performed well on this dataset, especially with the kernel trick, which allows it to handle non-linear relationships between features. It is more complex and computationally expensive than Logistic Regression but might offer better performance for more complicated datasets.
 
 Performance Metrics: Both models were evaluated using accuracy, confusion matrix, and classification report. SVM might provide better performance on some datasets, especially when the data has non-linear boundaries. However, Logistic Regression is faster and easier to interpret, making it suitable for simpler datasets or real-time applications where speed is important.
